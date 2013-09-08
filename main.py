@@ -1,10 +1,10 @@
 from flask import Flask, request, redirect, session
-from constants import CONSUMER_ID, CONSUMER_SECRET, APP_SECRET_KEY
+from constants import CONSUMER_ID, CONSUMER_SECRET, APP_SECRET
 import requests
 
 app = Flask(__name__)
 app.debug = True
-app.secret_key = APP_SECRET_KEY
+app.secret_key = APP_SECRET
 
 @app.route('/')
 def index():
