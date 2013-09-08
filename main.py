@@ -1,5 +1,5 @@
 from flask import Flask, request, redirect, session
-from constants import CONSUMER_KEY, CONSUMER_SECRET, APP_SECRET_KEY
+from constants import CONSUMER_ID, CONSUMER_SECRET, APP_SECRET_KEY
 import requests
 
 app = Flask(__name__)
@@ -11,20 +11,19 @@ def index():
     if session.get('venmo_token'):
         return 'Your Venmo token is %s' % session.get('venmo_token')
     else:
-        return redirect('https://api.venmo.com/oauth/authorize?client_id=%s&scope=make_payments,access_profile&response_type=code' % CONSUMER_KEY)
+        return redirect('https://api.venmo.com/oauth/authorize?client_id=%s&scope=make_payments,access_profile&response_type=code' % CONSUMER_ID)
 
 @app.route('/oauth-authorized')
 def oauth_authorized():
     AUTHORIZATION_CODE = request.args.get('code')
     data = {
-        "client_id":CONSUMER_KEY,
+        "client_id":CONSUMER_ID,
         "client_secret":CONSUMER_SECRET,
         "code":AUTHORIZATION_CODE
         }
     url = "https://api.venmo.com/oauth/access_token"
     response = requests.post(url, data)
     response_dict = response.json()
-    app.logger.debug(response_dict)
     access_token = response_dict.get('access_token')
     user = response_dict.get('user')
 
