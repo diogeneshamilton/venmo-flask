@@ -2,6 +2,7 @@ Venmo OAuth Flask Example
 ===========
 
 An example server-side implementation of obtaining a long-lived access token for Venmo OAuth. 
+
 Venmo API documentation available [here](http://venmo.com/api).
 
 Setup
