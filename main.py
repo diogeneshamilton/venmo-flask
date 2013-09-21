@@ -3,6 +3,7 @@ from constants import CONSUMER_ID, CONSUMER_SECRET, APP_SECRET
 import requests
 
 app = Flask(__name__)
+# comment out when you're done testing
 app.debug = True
 app.secret_key = APP_SECRET
 
