@@ -17,15 +17,10 @@ Create a new Venmo Application by visiting https://venmo.com/
 
 Login and go to: Account > Developers > [New Application](https://venmo.com/account/app/new).
 
-![Create new application](https://dl.dropbox.com/u/800/Captured/GbalC.png)
-
-You can find your app ID and secret here:
-![Get app credentials](https://dl.dropboxusercontent.com/s/9gysjwne1u321fa/ExampleOAuthFlaskAppCredentials.png)
-
+![Create new application](https://dl.dropboxusercontent.com/s/ffo01uzr65y9kzw/GbalC.png)
 
 Clone this repo and cd into the venmo-flask directory.
 Create a constants.py file with these definitions:
-
 <table>
     <tr>
     <td> CONSUMER_ID </td>
@@ -33,11 +28,11 @@ Create a constants.py file with these definitions:
     </tr>
     <tr>
     <td> CONSUMER_SECRET </td>
-    <td> Your Venmo app secret e.g. 'E4jWCktKjvnDoIjdFwXaQuGBKPhxTDXR' </td>
+    <td> Your Venmo app secret as a string e.g. 'E4jWCktKjvnDoIjdFwXaQuGBKPhxTDXR' </td>
     </tr>
     <tr>
     <td> APP_SECRET </td>
-    <td> a random string used to encrypt your session cookies e.g. 'thisappisnice' </td>
+    <td> A random string used to encrypt your session cookies e.g. 'thisappisnice' </td>
 </table>
 
 Then run 
