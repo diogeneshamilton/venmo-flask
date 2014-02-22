@@ -12,7 +12,7 @@ def index():
     if session.get('venmo_token'):
         return 'Your Venmo token is %s' % session.get('venmo_token')
     else:
-        return redirect('https://api.venmo.com/oauth/authorize?client_id=%s&scope=make_payments,access_profile&response_type=code' % CONSUMER_ID)
+        return redirect('https://api.venmo.com/v1/oauth/authorize?client_id=%s&scope=make_payments,access_profile&response_type=code' % CONSUMER_ID)
 
 @app.route('/oauth-authorized')
 def oauth_authorized():
@@ -22,7 +22,7 @@ def oauth_authorized():
         "client_secret":CONSUMER_SECRET,
         "code":AUTHORIZATION_CODE
         }
-    url = "https://api.venmo.com/oauth/access_token"
+    url = "https://api.venmo.com/v1/oauth/access_token"
     response = requests.post(url, data)
     response_dict = response.json()
     access_token = response_dict.get('access_token')
