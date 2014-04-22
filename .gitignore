@@ -36,3 +36,5 @@ nosetests.xml
 
 # constants
 constants.py
+
+.DS_Store
